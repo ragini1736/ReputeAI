@@ -25,6 +25,6 @@ app.use("/customer", customerRoutes);
 app.use("/customers", customerRoutes);
 app.use("/stats", statsRoutes);
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   console.log(`ReputeAI API running on port ${PORT}`);
 });
