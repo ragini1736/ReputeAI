@@ -6,7 +6,15 @@ const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
   try {
-    const businessId = req.user.business_id;
+
+    const businessId = req.businessId;
+
+if (!businessId) {
+  return res.status(401).json({
+    error: "Unauthorized"
+  });
+}
+    
 
     const { data, error } = await supabase.rpc(
       "get_business_stats",
